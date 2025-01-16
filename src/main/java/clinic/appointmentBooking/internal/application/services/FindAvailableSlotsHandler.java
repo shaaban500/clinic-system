@@ -1,7 +1,7 @@
-package clinic.appointmentBooking.application.services;
+package clinic.appointmentBooking.internal.application.services;
 
-import clinic.appointmentBooking.application.contracts.ISlotRepository;
-import clinic.appointmentBooking.application.dtos.SlotDto;
+import clinic.appointmentBooking.internal.application.contracts.ISlotRepository;
+import clinic.appointmentBooking.internal.application.dtos.SlotDto;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

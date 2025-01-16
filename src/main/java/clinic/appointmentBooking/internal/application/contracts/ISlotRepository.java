@@ -1,7 +1,7 @@
-package clinic.appointmentBooking.application.contracts;
+package clinic.appointmentBooking.internal.application.contracts;
 
-import clinic.appointmentBooking.application.dtos.SlotDto;
-import clinic.appointmentBooking.domain.models.SlotDomain;
+import clinic.appointmentBooking.internal.application.dtos.SlotDto;
+import clinic.appointmentBooking.internal.domain.models.SlotDomain;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

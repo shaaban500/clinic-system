@@ -1,6 +1,6 @@
-package clinic.appointmentBooking.presentation.controllers.command;
+package clinic.appointmentBooking.internal.presentation.controllers.command;
 
-import clinic.appointmentBooking.application.services.BookSlotHandler;
+import clinic.appointmentBooking.internal.application.services.BookSlotHandler;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

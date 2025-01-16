@@ -1,7 +1,7 @@
-package clinic.appointmentBooking.infrastructure.repositories;
+package clinic.appointmentBooking.internal.infrastructure.repositories;
 
-import clinic.appointmentBooking.application.dtos.SlotDto;
-import clinic.appointmentBooking.infrastructure.entities.SlotEntity;
+import clinic.appointmentBooking.internal.application.dtos.SlotDto;
+import clinic.appointmentBooking.internal.infrastructure.entities.SlotEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

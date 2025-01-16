@@ -1,7 +1,7 @@
-package clinic.appointmentBooking.application.services;
+package clinic.appointmentBooking.internal.application.services;
 
-import clinic.appointmentBooking.application.contracts.ISlotRepository;
-import clinic.appointmentBooking.domain.models.SlotDomain;
+import clinic.appointmentBooking.internal.application.contracts.ISlotRepository;
+import clinic.appointmentBooking.internal.domain.models.SlotDomain;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

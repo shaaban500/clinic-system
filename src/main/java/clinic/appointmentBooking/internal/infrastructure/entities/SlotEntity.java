@@ -1,4 +1,4 @@
-package clinic.appointmentBooking.infrastructure.entities;
+package clinic.appointmentBooking.internal.infrastructure.entities;
 
 
 import jakarta.persistence.*;

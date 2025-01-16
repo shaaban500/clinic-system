@@ -1,4 +1,4 @@
-package clinic.appointmentBooking.domain.models;
+package clinic.appointmentBooking.internal.domain.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

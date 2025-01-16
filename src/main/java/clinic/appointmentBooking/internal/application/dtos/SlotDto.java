@@ -1,4 +1,4 @@
-package clinic.appointmentBooking.application.dtos;
+package clinic.appointmentBooking.internal.application.dtos;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
