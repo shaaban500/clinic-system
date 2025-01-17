@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackages = "clinic.appointmentBooking.infrastructure.repositories", // Repository package for appointmentBooking
+        basePackages = "clinic.appointmentBooking.internal.infrastructure", // Repository package for appointmentBooking
         entityManagerFactoryRef = "appointmentBookingEntityManagerFactory",
         transactionManagerRef = "appointmentBookingTransactionManager"
 )
@@ -39,7 +39,7 @@ public class appointmentBookingDataSourceConfig {
 
         return builder
                 .dataSource(dataSource)
-                .packages("clinic.appointmentBooking.infrastructure.entities")
+                .packages("clinic.appointmentBooking.internal.infrastructure.entities")
                 .persistenceUnit("appointmentBooking")
                 .build();
     }

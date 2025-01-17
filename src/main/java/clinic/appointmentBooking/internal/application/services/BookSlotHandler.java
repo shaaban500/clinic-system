@@ -1,6 +1,8 @@
 package clinic.appointmentBooking.internal.application.services;
 
+import clinic.appointmentBooking.internal.application.contracts.IPatientRepository;
 import clinic.appointmentBooking.internal.application.contracts.ISlotRepository;
+import clinic.appointmentBooking.internal.domain.models.Patient;
 import clinic.appointmentBooking.internal.domain.models.SlotDomain;
 import org.springframework.stereotype.Service;
 
@@ -10,24 +12,17 @@ import java.util.UUID;
 public class BookSlotHandler {
 
     private final ISlotRepository slotRepository;
-
-    public BookSlotHandler(ISlotRepository slotRepository) {
+    private final IPatientRepository patientRepository;
+    public BookSlotHandler(ISlotRepository slotRepository, IPatientRepository patientRepository) {
         this.slotRepository = slotRepository;
+        this.patientRepository = patientRepository;
     }
 
-    public void handle(UUID slotId) {
-        SlotDomain slot = slotRepository.findById(slotId).orElse(null);
+    public void handle(UUID slotId, UUID patientId) {
+        SlotDomain slot = slotRepository.findById(slotId).orElseThrow();
+        Patient patient = patientRepository.findById(patientId);
 
-        if (slot == null) {
-            throw new IllegalArgumentException("this slot is not exist");
-        }
-
-        slot.markReserved();
+        slot.markReserved(patient.getId(), patient.getPatientName());
         slotRepository.save(slot);
-        // todo: 1. get slot
-        // todo: 2. check slot is available
-        // todo: 3. update slot
-        // todo: 4. send event to appointments module 3
-        // todo: 5. send notification event
     }
 }

@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity(name = "AppointmentSlot")
-@Table(name = "slots")
+@Table(name = "slots", schema = "appointment-booking")
 public class SlotEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, unique = true)
     private UUID id;
 
     @Column(name = "date_time", nullable = false)

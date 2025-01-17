@@ -16,6 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 @Configuration
@@ -40,7 +41,7 @@ public class doctorAvailabilityDataSourceConfig {
     @Bean(name = "doctorAvailabilityEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean doctorAvailabilityEntityManagerFactory(
             @Qualifier("doctorAvailabilityDataSource") DataSource dataSource,
-            final EntityManagerFactoryBuilder builder) {
+            final EntityManagerFactoryBuilder builder) throws SQLException {
 
         return builder
                 .dataSource(dataSource)

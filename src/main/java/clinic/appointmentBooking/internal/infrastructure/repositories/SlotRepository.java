@@ -4,6 +4,7 @@ import clinic.appointmentBooking.internal.application.contracts.ISlotRepository;
 import clinic.appointmentBooking.internal.application.dtos.SlotDto;
 import clinic.appointmentBooking.internal.domain.models.SlotDomain;
 import clinic.appointmentBooking.internal.infrastructure.entities.SlotEntity;
+import clinic.shared.events.IEventPublisher;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -14,9 +15,11 @@ import java.util.UUID;
 @Repository
 public class SlotRepository implements ISlotRepository {
     private final JpaSlotRepository jpaSlotRepository;
+    private final IEventPublisher eventPublisher;
 
-    public SlotRepository(JpaSlotRepository jpaSlotRepository) {
+    public SlotRepository(JpaSlotRepository jpaSlotRepository, IEventPublisher eventPublisher) {
         this.jpaSlotRepository = jpaSlotRepository;
+        this.eventPublisher = eventPublisher;
     }
 
     @Override
@@ -33,8 +36,8 @@ public class SlotRepository implements ISlotRepository {
     @Override
     public void save(SlotDomain slotDomain) {
         SlotEntity entity = mapToEntity(slotDomain);
-        System.out.println("--------------");
         jpaSlotRepository.save(entity);
+        slotDomain.getEvents().forEach(eventPublisher::publish);
     }
 
     private SlotDomain mapToDomain(SlotEntity entity) {

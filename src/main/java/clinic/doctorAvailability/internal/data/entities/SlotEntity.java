@@ -15,7 +15,7 @@ import java.util.UUID;
 @Entity(name = "DoctorAvailabilitySlot")
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "slots")
+@Table(name = "slots", schema = "doctor-availability")
 public class SlotEntity {
 
     @Id
