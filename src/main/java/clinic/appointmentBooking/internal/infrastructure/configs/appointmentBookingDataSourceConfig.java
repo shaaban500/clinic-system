@@ -1,4 +1,4 @@
-package clinic.shared.dataSourceConfigs;
+package clinic.appointmentBooking.internal.infrastructure.configs;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
