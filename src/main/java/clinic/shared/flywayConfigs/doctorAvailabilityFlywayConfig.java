@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 import javax.sql.DataSource;
 
@@ -12,12 +13,14 @@ import javax.sql.DataSource;
 public class doctorAvailabilityFlywayConfig {
 
     @Bean(name = "doctorAvailabilityFlyway")
-    @ConfigurationProperties(prefix = "spring.flyway.doctor-availability")
+    @DependsOn("doctorAvailabilityDataSource")
     public Flyway doctorAvailabilityFlyway(@Qualifier("doctorAvailabilityDataSource") DataSource dataSource) {
         Flyway flyway = Flyway.configure()
                 .dataSource(dataSource)
-                .locations("classpath:db/migration/doctor-availability") // Location of migration scripts
-                .baselineOnMigrate(true)
+                .outOfOrder(false)
+                .baselineOnMigrate(false)
+                .locations("classpath:db/migration/doctor-availability")
+                .schemas("appointment-booking")
                 .load();
         flyway.migrate(); // Apply migrations
         return flyway;

@@ -4,17 +4,17 @@ import clinic.appointmentBooking.internal.application.contracts.ISlotRepository;
 import clinic.appointmentBooking.internal.application.dtos.SlotDto;
 import clinic.appointmentBooking.internal.domain.models.SlotDomain;
 import clinic.appointmentBooking.internal.infrastructure.entities.SlotEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Component
+@Repository
 public class SlotRepository implements ISlotRepository {
-
     private final JpaSlotRepository jpaSlotRepository;
+
     public SlotRepository(JpaSlotRepository jpaSlotRepository) {
         this.jpaSlotRepository = jpaSlotRepository;
     }

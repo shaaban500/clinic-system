@@ -1,6 +1,6 @@
-package clinic.AppointmentConfirmation.internal;
+package clinic.appointmentConfirmation.internal;
 
-import clinic.AppointmentConfirmation.shared.INotificationApi;
+import clinic.appointmentConfirmation.shared.INotificationApi;
 import org.springframework.stereotype.Component;
 
 @Component
