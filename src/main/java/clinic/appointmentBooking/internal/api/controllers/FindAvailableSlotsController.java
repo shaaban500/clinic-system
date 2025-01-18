@@ -1,7 +1,7 @@
-package clinic.appointmentBooking.internal.presentation.controllers.query;
+package clinic.appointmentBooking.internal.api.controllers;
 
 import clinic.appointmentBooking.internal.application.dtos.SlotDto;
-import clinic.appointmentBooking.internal.application.services.FindAvailableSlotsHandler;
+import clinic.appointmentBooking.internal.application.queries.FindAvailableSlotsHandler;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

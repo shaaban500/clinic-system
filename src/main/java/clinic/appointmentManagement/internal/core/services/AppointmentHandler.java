@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class AppointmentService implements IAppointmentService {
+public class AppointmentHandler implements IAppointmentService {
     private final IAppointmentRepository appointmentRepository;
-    public AppointmentService(IAppointmentRepository appointmentRepository){
+    public AppointmentHandler(IAppointmentRepository appointmentRepository){
         this.appointmentRepository = appointmentRepository;
     }
 

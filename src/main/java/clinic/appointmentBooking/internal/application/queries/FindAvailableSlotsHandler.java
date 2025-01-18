@@ -1,4 +1,4 @@
-package clinic.appointmentBooking.internal.application.services;
+package clinic.appointmentBooking.internal.application.queries;
 
 import clinic.appointmentBooking.internal.application.contracts.ISlotRepository;
 import clinic.appointmentBooking.internal.application.dtos.SlotDto;

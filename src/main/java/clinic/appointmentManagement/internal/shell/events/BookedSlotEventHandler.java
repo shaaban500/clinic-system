@@ -1,4 +1,4 @@
-package clinic.appointmentManagement.internal.shell.events.eventHandlers;
+package clinic.appointmentManagement.internal.shell.events;
 
 import clinic.appointmentBooking.shared.BookedSlotEvent;
 import clinic.appointmentManagement.internal.core.models.Appointment;
