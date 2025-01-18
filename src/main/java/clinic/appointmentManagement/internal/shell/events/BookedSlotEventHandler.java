@@ -2,15 +2,15 @@ package clinic.appointmentManagement.internal.shell.events;
 
 import clinic.appointmentBooking.shared.BookedSlotEvent;
 import clinic.appointmentManagement.internal.core.models.Appointment;
-import clinic.appointmentManagement.internal.shell.db.repositories.AppointmentRepository;
+import clinic.appointmentManagement.internal.core.outputPorts.IAppointmentRepository;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class BookedSlotEventHandler {
-    private final AppointmentRepository appointmentRepository;
-    public BookedSlotEventHandler(AppointmentRepository appointmentRepository) {
+    private final IAppointmentRepository appointmentRepository;
+    public BookedSlotEventHandler(IAppointmentRepository appointmentRepository) {
         this.appointmentRepository = appointmentRepository;
     }
 

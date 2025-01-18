@@ -1,4 +1,4 @@
-package clinic.appointmentManagement.internal.core.services.enums;
+package clinic.appointmentManagement.internal.core.models.enums;
 
 public enum AppointmentStatus {
     CANCELED("Canceled", 1),

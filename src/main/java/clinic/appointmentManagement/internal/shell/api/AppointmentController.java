@@ -1,5 +1,4 @@
-package clinic.appointmentManagement.internal.shell.api;//package com.appointmentManagement.shell.controllers;
-
+package clinic.appointmentManagement.internal.shell.api;
 
 import clinic.appointmentManagement.internal.core.services.AppointmentHandler;
 import clinic.appointmentManagement.internal.core.services.dtos.AppointmentDto;
@@ -31,21 +30,4 @@ public class AppointmentController {
         appointmentHandler.UpdateStatus(appointmentId, statusId);
         return ResponseEntity.ok().build();
     }
-
-//    @PutMapping("/{appointmentId}/status")
-//    public ResponseEntity<Void> updateStatus(
-//            @PathVariable UUID appointmentId,
-//            @RequestParam(name = "status_id", required = true) Integer statusId) { // Not null query parameter
-//        appointmentService.UpdateStatus(appointmentId, statusId);
-//        return ResponseEntity.ok().build();
-//    }
-
-//    @PutMapping("/{appointmentId}/{statusId}")
-//    public ResponseEntity<Void> updateStatus(
-//            @PathVariable UUID appointmentId,
-//            @PathVariable Integer statusId){
-//            @RequestParam(name = "status_id", required = true) Integer statusId) {
-//        appointmentService.UpdateStatus(appointmentId, statusId);
-//        return ResponseEntity.ok().build();
-//    }
 }

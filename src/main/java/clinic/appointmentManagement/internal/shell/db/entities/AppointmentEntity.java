@@ -1,4 +1,4 @@
-package clinic.appointmentManagement.internal.shell.db.entities;//package com.appointmentManagement.shell.db;
+package clinic.appointmentManagement.internal.shell.db.entities;
 
 import jakarta.persistence.*;
 

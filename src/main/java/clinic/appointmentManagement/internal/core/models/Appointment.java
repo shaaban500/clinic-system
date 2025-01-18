@@ -1,6 +1,6 @@
-package clinic.appointmentManagement.internal.core.models;//package com.appointmentManagement.core.models;
+package clinic.appointmentManagement.internal.core.models;
 
-import clinic.appointmentManagement.internal.core.services.enums.AppointmentStatus;
+import clinic.appointmentManagement.internal.core.models.enums.AppointmentStatus;
 import clinic.appointmentManagement.shared.events.CanceledAppointmentEvent;
 import clinic.shared.events.IDomainEvent;
 

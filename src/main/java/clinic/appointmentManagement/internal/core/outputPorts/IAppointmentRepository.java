@@ -1,4 +1,4 @@
-package clinic.appointmentManagement.internal.core.outputPorts;//package com.appointmentManagement.core.outputPorts;
+package clinic.appointmentManagement.internal.core.outputPorts;
 
 import clinic.appointmentManagement.internal.core.models.Appointment;
 import clinic.appointmentManagement.internal.core.services.dtos.AppointmentDto;
