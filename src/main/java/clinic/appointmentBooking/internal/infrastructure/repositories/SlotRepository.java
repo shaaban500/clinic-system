@@ -53,7 +53,6 @@ public class SlotRepository implements ISlotRepository {
                 slotDomain.getId(),
                 slotDomain.getDateTime(),
                 slotDomain.getIsReserved(),
-                slotDomain.getCost()
-                );
+                slotDomain.getCost());
     }
 }

@@ -15,7 +15,7 @@ public class Appointment {
     private String patientName;
     private LocalDateTime dateTime;
     private LocalDateTime reservedAt;
-    private List<IDomainEvent> events;
+    private List<IDomainEvent> events = new ArrayList<>();
 
     public Appointment(UUID id, UUID slotId, UUID patientId, Integer statusId, String patientName, LocalDateTime dateTime, LocalDateTime reservedAt) {
         this.id = id;
@@ -25,6 +25,19 @@ public class Appointment {
         this.patientName = patientName;
         this.dateTime = dateTime;
         this.reservedAt = reservedAt;
+    }
+
+    public void setStatusId(Integer statusId) {
+        if (this.statusId != null) {
+            throw new RuntimeException("can't change appointment status.");
+        }
+
+        var statusEnum = AppointmentStatus.getStatusById(statusId);
+        if (statusEnum.equals(AppointmentStatus.CANCELED)) {
+            events.add(new CanceledAppointmentEvent(slotId));
+        }
+
+        this.statusId = statusId;
     }
 
     public UUID getId() {
@@ -69,19 +82,6 @@ public class Appointment {
 
     public Integer getStatusId() {
         return statusId;
-    }
-
-    public void setStatusId(Integer statusId) {
-        if (statusId != null) {
-            throw new RuntimeException("can't change appointment status.");
-        }
-
-        var statusEnum = AppointmentStatus.getStatusById(statusId);
-        if (statusEnum.equals(AppointmentStatus.CANCELED)) {
-            events.add(new CanceledAppointmentEvent(slotId));
-        }
-
-        this.statusId = statusId;
     }
 
     public String getPatientName() {

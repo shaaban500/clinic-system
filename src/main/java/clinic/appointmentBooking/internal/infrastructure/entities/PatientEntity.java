@@ -14,6 +14,9 @@ public class PatientEntity {
     @Column(name = "patient_name", nullable = false)
     private String patientName;
 
+    public PatientEntity() {
+    }
+
     public PatientEntity(UUID id, String patientName) {
         this.id = id;
         this.patientName = patientName;

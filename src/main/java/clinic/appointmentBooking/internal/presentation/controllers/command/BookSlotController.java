@@ -2,10 +2,7 @@ package clinic.appointmentBooking.internal.presentation.controllers.command;
 
 import clinic.appointmentBooking.internal.application.services.BookSlotHandler;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -19,8 +16,8 @@ public class BookSlotController {
     }
 
     @PostMapping("/book/{slotId}")
-    public ResponseEntity<?> bookSlot(@PathVariable UUID slotId) {
-        bookSlotHandler.handle(slotId);
+    public ResponseEntity<?> bookSlot(@PathVariable UUID slotId, @RequestParam(name = "patient_id", required = true) UUID patientId) {
+        bookSlotHandler.handle(slotId, patientId);
         return ResponseEntity.ok().build();
     }
 }

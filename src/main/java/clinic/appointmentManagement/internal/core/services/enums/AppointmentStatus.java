@@ -2,7 +2,7 @@ package clinic.appointmentManagement.internal.core.services.enums;
 
 public enum AppointmentStatus {
     CANCELED("Canceled", 1),
-    COMPLETED("Completed", 1);
+    COMPLETED("Completed", 2);
 
     private Integer id;
     private String status;

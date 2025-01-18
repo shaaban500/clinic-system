@@ -3,8 +3,9 @@ package clinic.doctorAvailability.internal.service;
 import clinic.doctorAvailability.internal.data.dtos.SlotEntityDto;
 import clinic.doctorAvailability.internal.data.entities.SlotEntity;
 import clinic.doctorAvailability.internal.data.repositories.SlotRepository;
-import clinic.doctorAvailability.internal.data.events.SlotEventPublisher;
 import clinic.doctorAvailability.internal.service.dtos.SlotDto;
+import clinic.doctorAvailability.shared.CreatedSlotEvent;
+import clinic.shared.events.IEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,11 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class SlotsService {
     private final SlotRepository slotRepository;
-    private final SlotEventPublisher slotEventPublisher;
+    private final IEventPublisher eventPublisher;
 
-    SlotsService(SlotRepository slotRepository, SlotEventPublisher slotEventPublisher) {
+    SlotsService(SlotRepository slotRepository, IEventPublisher eventPublisher) {
         this.slotRepository = slotRepository;
-        this.slotEventPublisher = slotEventPublisher;
+        this.eventPublisher = eventPublisher;
     }
 
     public List<SlotDto> getAllSlots() {
@@ -35,7 +36,12 @@ public class SlotsService {
 
         SlotEntity slotEntity = mapToSlotEntity(newSlot);
         var createdSlot = slotRepository.save(slotEntity);
-        slotEventPublisher.publishCreatedSlotEvent(createdSlot);
+
+        eventPublisher.publish(new CreatedSlotEvent(
+                createdSlot.getId(),
+                createdSlot.getDateTime(),
+                createdSlot.getIsReserved(),
+                createdSlot.getCost()));
     }
 
     private List<SlotDto> mapToSlotDto(List<SlotEntityDto> slots) {

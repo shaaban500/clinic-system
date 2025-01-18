@@ -9,6 +9,7 @@ import java.util.UUID;
 @Table(name = "appointments", schema = "appointment-management")
 public class AppointmentEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "slot_id", nullable = false)
@@ -20,7 +21,7 @@ public class AppointmentEntity {
     @Column(name = "reserved_at", nullable = false)
     private LocalDateTime reservedAt;
 
-    @Column(name = "status_id", nullable = false)
+    @Column(name = "status_id", nullable = true)
     private Integer statusId;
 
     @Column(name = "patient_name", nullable = false)
@@ -32,11 +33,16 @@ public class AppointmentEntity {
     public AppointmentEntity() {
     }
 
-    public AppointmentEntity(UUID id, UUID slotId, UUID patientId, LocalDateTime reservedAt) {
+    public AppointmentEntity(UUID id, UUID slotId, UUID patientId,
+                             LocalDateTime reservedAt, Integer statusId,
+                             String patientName, LocalDateTime dateTime) {
         this.id = id;
         this.slotId = slotId;
         this.patientId = patientId;
         this.reservedAt = reservedAt;
+        this.statusId = statusId;
+        this.patientName = patientName;
+        this.dateTime = dateTime;
     }
 
     public UUID getId() { return id; }

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/appointments")
+@RequestMapping("api/appointments")
 public class AppointmentController {
     private final AppointmentService appointmentService;
 
@@ -24,11 +24,28 @@ public class AppointmentController {
         return ResponseEntity.ok(appointments);
     }
 
-    @PutMapping("/{appointmentId}/status")
+    @PutMapping("/{appointmentId}")
     public ResponseEntity<Void> updateStatus(
             @PathVariable UUID appointmentId,
-            @RequestParam Integer statusId) {
+            @RequestParam(name = "status_id", required = true) Integer statusId) {
         appointmentService.UpdateStatus(appointmentId, statusId);
         return ResponseEntity.ok().build();
     }
+
+//    @PutMapping("/{appointmentId}/status")
+//    public ResponseEntity<Void> updateStatus(
+//            @PathVariable UUID appointmentId,
+//            @RequestParam(name = "status_id", required = true) Integer statusId) { // Not null query parameter
+//        appointmentService.UpdateStatus(appointmentId, statusId);
+//        return ResponseEntity.ok().build();
+//    }
+
+//    @PutMapping("/{appointmentId}/{statusId}")
+//    public ResponseEntity<Void> updateStatus(
+//            @PathVariable UUID appointmentId,
+//            @PathVariable Integer statusId){
+//            @RequestParam(name = "status_id", required = true) Integer statusId) {
+//        appointmentService.UpdateStatus(appointmentId, statusId);
+//        return ResponseEntity.ok().build();
+//    }
 }

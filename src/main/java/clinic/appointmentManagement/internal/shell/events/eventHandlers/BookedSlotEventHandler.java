@@ -1,11 +1,13 @@
 package clinic.appointmentManagement.internal.shell.events.eventHandlers;
 
-
 import clinic.appointmentBooking.shared.BookedSlotEvent;
 import clinic.appointmentManagement.internal.core.models.Appointment;
 import clinic.appointmentManagement.internal.shell.db.repositories.AppointmentRepository;
 import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class BookedSlotEventHandler {
     private final AppointmentRepository appointmentRepository;
     public BookedSlotEventHandler(AppointmentRepository appointmentRepository) {
@@ -13,7 +15,7 @@ public class BookedSlotEventHandler {
     }
 
     @EventListener
-    public void handleCreatedSlotEvent(BookedSlotEvent event) {
+    public void handleBookedSlotEvent(BookedSlotEvent event) {
         Appointment appointment = new Appointment(
                 null,
                 event.slotId(),
@@ -25,5 +27,4 @@ public class BookedSlotEventHandler {
 
         appointmentRepository.save(appointment);
     }
-
 }

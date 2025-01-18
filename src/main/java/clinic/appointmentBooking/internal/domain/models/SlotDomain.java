@@ -21,6 +21,7 @@ public class SlotDomain {
         this.dateTime = dateTime;
         this.isReserved = isReserved;
         this.cost = cost;
+        this.events = new ArrayList<>();
     }
 
     public static SlotDomain createSlotDomain(UUID id, LocalDateTime dateTime, Boolean isReserved, BigDecimal cost) {

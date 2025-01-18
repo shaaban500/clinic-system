@@ -44,7 +44,10 @@ public class AppointmentRepository implements IAppointmentRepository {
                 appointment.getId(),
                 appointment.getSlotId(),
                 appointment.getPatientId(),
-                appointment.getReservedAt());
+                appointment.getReservedAt(),
+                appointment.getStatusId(),
+                appointment.getPatientName(),
+                appointment.getDateTime());
     }
 
     private Appointment mapToAppointmentDomain(AppointmentEntity entity) {
