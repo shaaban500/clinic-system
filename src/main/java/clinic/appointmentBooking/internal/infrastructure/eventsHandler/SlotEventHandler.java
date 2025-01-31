@@ -3,7 +3,6 @@ package clinic.appointmentBooking.internal.infrastructure.eventsHandler;
 import clinic.appointmentBooking.internal.application.contracts.ISlotRepository;
 import clinic.appointmentBooking.shared.BookedSlotEvent;
 import clinic.appointmentBooking.internal.domain.models.SlotDomain;
-import clinic.appointmentBooking.internal.infrastructure.repositories.SlotRepository;
 import clinic.appointmentConfirmation.shared.INotificationApi;
 import clinic.appointmentManagement.shared.events.CanceledAppointmentEvent;
 import clinic.doctorAvailability.shared.CreatedSlotEvent;
