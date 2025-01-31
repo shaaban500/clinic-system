@@ -1,4 +1,4 @@
-package clinic.appointmentBooking.internal.api.controllers;
+package clinic.appointmentBooking.internal.api;
 
 import clinic.appointmentBooking.internal.application.commands.BookSlotHandler;
 import org.springframework.http.ResponseEntity;
